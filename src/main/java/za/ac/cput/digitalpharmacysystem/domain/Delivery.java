@@ -1,7 +1,7 @@
 package za.ac.cput.digitalpharmacysystem.domain;
 
 
-import za.ac.cput.digitalpharmacysystem.factory.DeliveryFactory;
+
 
 import java.time.LocalDateTime;
 
@@ -69,8 +69,8 @@ public class Delivery {
             this.status = status;
             return this;
         }
-        public DeliveryFactory build() {
-            return new DeliveryFactory();
+        public Delivery build() {
+            return new Delivery();
 
         }
     }
