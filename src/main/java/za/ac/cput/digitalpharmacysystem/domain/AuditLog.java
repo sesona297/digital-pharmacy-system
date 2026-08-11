@@ -1,5 +1,8 @@
 package za.ac.cput.digitalpharmacysystem.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.time.LocalDateTime;
 
 /*
@@ -7,8 +10,9 @@ import java.time.LocalDateTime;
  * 240773365
 
  */
-
+@Entity
 public class AuditLog {
+    @Id
     private String id;
     private String action;
     private String entityTarget;

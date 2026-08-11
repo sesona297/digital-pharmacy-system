@@ -3,22 +3,31 @@ package za.ac.cput.digitalpharmacysystem.domain;
 
 
 
-import java.time.LocalDateTime;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
+
+
 
 /*
  * Sesona Ntshatsha
  * 240773365
 
  */
+@Entity
 public class Delivery {
+    @Id
     private String id;
     private String trackingNo;
     private String address;
+
+    @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
 
-    private Delivery() {}
+    protected Delivery() {}
 
-    private Delivery(Builder builder) {
+    private Delivery (Builder builder) {
         this.id = builder.id;
         this.trackingNo = builder.trackingNo;
         this.address = builder.address;
@@ -70,7 +79,7 @@ public class Delivery {
             return this;
         }
         public Delivery build() {
-            return new Delivery();
+            return new Delivery(this);
 
         }
     }
