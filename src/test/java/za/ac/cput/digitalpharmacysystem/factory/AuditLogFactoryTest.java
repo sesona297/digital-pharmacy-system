@@ -6,6 +6,11 @@ import za.ac.cput.digitalpharmacysystem.domain.AuditLog;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
+/*
+ * Sesona Ntshatsha
+ * 240773365
+
+ */
 
 public class AuditLogFactoryTest {
     @Test
