@@ -32,6 +32,10 @@ public class Order {
         this.paymentStatus = builder.paymentStatus;
     }
 
+    public String getId() {
+        return orderNumber;
+    }
+
     public static class Builder {
         private String orderNumber;
         private String customerId;
