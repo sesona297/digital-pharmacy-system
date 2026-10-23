@@ -10,8 +10,8 @@ import jakarta.persistence.*;
 @Table(name = "order_item")
 
 public class OrderItem {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String orderId;
     private String orderQty;
     private String priceAtPurchase;

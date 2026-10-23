@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.digitalpharmacysystem.domain.Delivery;
 import za.ac.cput.digitalpharmacysystem.repository.DeliveryRepository;
+import za.ac.cput.digitalpharmacysystem.repository.IOrderRepository;
+import za.ac.cput.digitalpharmacysystem.repository.UserRepository;
 
 import java.util.List;
 
@@ -16,13 +18,19 @@ import java.util.List;
 @Service
 public class DeliveryService implements IDeliveryService{
     private final DeliveryRepository repository;
+    private final IOrderRepository orderRepository;
+    private final UserRepository userRepository;
+
 
     @Autowired
-    public DeliveryService(DeliveryRepository repository) {
+    public DeliveryService(
+            DeliveryRepository repository,
+            IOrderRepository orderRepository,
+            UserRepository userRepository) {
         this.repository = repository;
-
-
-        }
+        this.orderRepository = orderRepository;
+        this.userRepository = userRepository;
+    }
 
         @Override
         public Delivery create(Delivery delivery) {
@@ -55,6 +63,14 @@ public class DeliveryService implements IDeliveryService{
         public List<Delivery> getAll() {
             return this.repository.findAll();
         }
+
+    public Delivery findByOrderNumber(String orderNumber) {
+        return repository.findByOrder_OrderNumber(orderNumber)
+                .orElse(null);
+    }
+    public List<Delivery> getCourierManifest(Long courierId) {
+        return repository.findByCourier_Id(courierId);
+    }
     }
 
 
