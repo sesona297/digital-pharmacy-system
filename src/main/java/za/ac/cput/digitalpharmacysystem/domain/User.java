@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 //Author: 221066748 (Noxolo Portia Ngubo)
 
@@ -22,6 +23,7 @@ public class User implements Serializable{
     private String email;
 
     @Column(nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String passwordHash;
 
     private String phone;
